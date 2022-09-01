@@ -28,6 +28,22 @@ module.exports = {
       },
       boxShadow: {
         DEFAULT: '0px 27px 80px rgba(0, 0, 0, 0.07), 0px 6.0308px 17.869px rgba(0, 0, 0, 0.0417275), 0px 1.79553px 5.32008px rgba(0, 0, 0, 0.0282725);'
+      },
+      animation: {
+        gradient: 'gradient 15s ease infinite'
+      },
+      keyframes: {
+        gradient: {
+          '0%': {
+            backgroundPosition: '0% 50%'
+          },
+          '50%': {
+            backgroundPosition: '100% 50%'
+          },
+          '100%': {
+            backgroundPosition: '0% 50%'
+          }
+        }
       }
     },
   },

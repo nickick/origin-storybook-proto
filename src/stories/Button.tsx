@@ -109,6 +109,8 @@ export const Button = ({
         font-sans
         rounded-full
         font-medium
+        animate-gradient
+        background-gradient-oversized
       `}
       style={{ backgroundColor }}
       {...props}
