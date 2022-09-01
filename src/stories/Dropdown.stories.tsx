@@ -16,10 +16,31 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
 
-export const StoryDropdown = Template.bind({});
+export const SimpleDropdown = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-StoryDropdown.args = {
-  label: 'Dropdown',
+SimpleDropdown.args = {
+  label: 'Simple Dropdown',
+  options: [
+    {
+      label: 'Collections',
+      href: '#'
+    },
+    {
+      label: 'Drops',
+      href: '#'
+    },
+    {
+      label: 'Storefront',
+      href: '#'
+    }
+  ]
+};
+
+export const HighlightDropdown = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+HighlightDropdown.args = {
+  label: 'Highlight Dropdown',
+  highlightText: 'Rewards',
   options: [
     {
       label: 'Dashboard',
@@ -27,7 +48,8 @@ StoryDropdown.args = {
     },
     {
       label: 'Rewards',
-      href: '#'
+      href: '#',
+      highlight: true,
     }
   ]
 };

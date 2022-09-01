@@ -2,20 +2,25 @@ import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import DownCaret from './assets/down-caret.svg'
 
-type DropdownOption = {
+type Options = {
   label: string,
   href: string,
+  highlight?: boolean,
 }
 
 interface DropdownProps {
   /**
    * Dropdown options
    */
-  options?: DropdownOption[]
+  options?: Options[]
   /**
    * Label to show for dropdown button
    */
   label: string
+  /**
+   * Text to highlight above dropdown
+   */
+  highlightText?: string,
 }
 
 function classNames(...classes: string[]) {
@@ -25,15 +30,36 @@ function classNames(...classes: string[]) {
 export const Dropdown = ({
   options,
   label,
+  highlightText = '',
 }: DropdownProps) => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button type="button" className="inline-flex w-full justify-center align-middle px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-offset-gray-100" id="menu-button" aria-expanded="true" aria-haspopup="true">
+        <Menu.Button 
+          type="button" 
+          className={
+            `
+            ${highlightText?.length > 0 ? 'pr-12' : ''}
+            inline-flex w-full justify-center align-middle px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-offset-gray-100
+            `
+          }
+            
+          id="menu-button" 
+          aria-expanded="true" 
+          aria-haspopup="true"
+        >
           {label}
           <img src={DownCaret} className="self-center pl-2" aria-hidden="true"/>
         </Menu.Button>
       </div>
+      
+      {
+        highlightText?.length > 0 && (
+          <div className='absolute right-0 bottom-6 bg-gradient-to-r from-story-pink-start to-story-pink-end rounded text-white text-2xs py-1 px-2'>
+            {highlightText}
+          </div>
+        )
+      }
 
       <Transition
         as={Fragment}
@@ -48,10 +74,11 @@ export const Dropdown = ({
           <div className="py-1" role="none">
             {/* <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --> */}
             {
-              options?.map(({label, href}) => (
+              options?.map(({label, href, highlight}) => (
                 <DropdownOption 
                   label={label} 
                   href={href}
+                  highlight={highlight}
                 />
               ))
             }
@@ -65,11 +92,13 @@ export const Dropdown = ({
 interface DropdownOptionProps {
   label: string
   href: string
+  highlight?: boolean
 }
 
 const DropdownOption = ({
   label,
-  href
+  href,
+  highlight = false
 }: DropdownOptionProps) => {
   return (
     <Menu.Item>
@@ -78,7 +107,9 @@ const DropdownOption = ({
           href={href}
           className={classNames(
             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-            'block px-4 py-2 text-sm'
+            highlight ? 'text-story-pink' : 'text-gray-700',
+            'block px-4 py-2 text-sm',
+            'font-bold'
           )}
         >
           {label}
