@@ -19,5 +19,15 @@ const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} 
 export const StoryDropdown = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 StoryDropdown.args = {
-  label: 'Dropdown'
+  label: 'Dropdown',
+  options: [
+    {
+      label: 'Dashboard',
+      href: '#'
+    },
+    {
+      label: 'Rewards',
+      href: '#'
+    }
+  ]
 };
