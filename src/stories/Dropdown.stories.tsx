@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Dropdown } from './Dropdown';
+import { LanguageOptions, OgnDropdownOptions } from './HeaderOptions';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -52,4 +53,20 @@ HighlightDropdown.args = {
       highlight: true,
     }
   ]
+};
+
+export const SelectionBoldingDropdown = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+SelectionBoldingDropdown.args = {
+  label: 'English',
+  bolding: 'selection',
+  options: LanguageOptions
+};
+
+export const UnboldedDropdown = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+UnboldedDropdown.args = {
+  label: 'Unbolded Dropdown',
+  bolding: 'none',
+  options: OgnDropdownOptions
 };

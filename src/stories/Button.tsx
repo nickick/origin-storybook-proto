@@ -42,6 +42,7 @@ export const Button = ({
 }: ButtonProps) => {
   let background
   let textColor
+  let hoverColor
 
   switch (webProperty) {
     case 'originprotocol':
@@ -51,13 +52,17 @@ export const Button = ({
       textColor = type === 'primary'
         ? 'text-white'
         : 'text-black'
+      hoverColor = 'hover:bg-gray-50'
       break
 
     case 'ousd':
       background = type === 'primary' 
         ? 'bg-gradient-to-r from-ousd-button-start to-ousd-button-end'
-        : 'bg-gradient-to-r from-ousd-button-dark-start to-ousd-button-dark-end'
+        : type === 'secondary'
+        ? 'bg-gradient-to-r from-ousd-button-dark-start to-ousd-button-dark-end'
+        : ''
       textColor = 'text-white'
+      hoverColor = 'hover:bg-gray-900'
       break;
     
     case 'story':
@@ -67,6 +72,7 @@ export const Button = ({
       textColor = type === 'primary'
         ? 'text-white'
         : 'text-story-blue'
+      hoverColor = 'hover:bg-gray-50'
       break
   
     default:
@@ -125,7 +131,7 @@ export const Button = ({
         ${fontWeight}
         ${shadow}
         ${rounding}
-        hover:bg-gray-50
+        ${hoverColor}
         leading-7
         font-sans
         animate-gradient
