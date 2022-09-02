@@ -12,7 +12,7 @@ interface DropdownProps {
   /**
    * Dropdown options
    */
-  options?: Options[]
+  options: Options[]
   /**
    * Label to show for dropdown button
    */
@@ -21,16 +21,28 @@ interface DropdownProps {
    * Text to highlight above dropdown
    */
   highlightText?: string,
+  /**
+   * Should the dropdown menu align to the right?
+   */
+  alignRight?: boolean,
+  /**
+   * Should bolding match the current selection, should all options be bold, or should none be bold?
+   */
+  bolding?: 'selection' | 'none' | 'all'
 }
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
+const SINGLE_COLUMN_OPTIONS_MAX = 8
+
 export const Dropdown = ({
   options,
   label,
   highlightText = '',
+  alignRight = false,
+  bolding = 'all'
 }: DropdownProps) => {
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -70,15 +82,25 @@ export const Dropdown = ({
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute left-0 z-10 mt-2 w-36 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabIndex={-1}>
-          <div className="py-1" role="none">
+        <Menu.Items className={`
+            ${alignRight ? 'right-0' : 'left-0'} 
+            ${options.length > SINGLE_COLUMN_OPTIONS_MAX ? 'w-72' : 'w-36'}
+            absolute z-10 mt-2 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`
+          } 
+          role="menu" 
+          aria-orientation="vertical" 
+          aria-labelledby="menu-button" 
+          tabIndex={-1}
+        >
+          <div className="py-1 flex flex-wrap" role="none">
             {/* <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --> */}
             {
-              options?.map(({label, href, highlight}) => (
+              options.map(({label: optionLabel, href, highlight}) => (
                 <DropdownOption 
-                  label={label} 
+                  label={optionLabel} 
                   href={href}
                   highlight={highlight}
+                  bold={bolding === 'all' || bolding === 'selection' && optionLabel === label}
                 />
               ))
             }
@@ -93,12 +115,14 @@ interface DropdownOptionProps {
   label: string
   href: string
   highlight?: boolean
+  bold?: boolean
 }
 
 const DropdownOption = ({
   label,
   href,
-  highlight = false
+  highlight = false,
+  bold = false,
 }: DropdownOptionProps) => {
   return (
     <Menu.Item>
@@ -108,8 +132,8 @@ const DropdownOption = ({
           className={classNames(
             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
             highlight ? 'text-story-pink' : 'text-gray-700',
-            'block px-4 py-2 text-base',
-            'font-bold',
+            bold ? 'font-bold' : 'font-normal',
+            'block px-4 py-2 text-base w-36',
             'font-sans'
           )}
         >
