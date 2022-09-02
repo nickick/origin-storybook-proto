@@ -5,11 +5,11 @@ interface ButtonProps {
   /**
    * What type of button is this?
    */
-  type?: 'primary' | 'secondary'
+  type?: 'primary' | 'secondary' | 'header'
   /**
    * What property is this button for?
    */
-  webProperty?: 'originprotocol' | 'OUSD' | 'story'
+  webProperty?: 'originprotocol' | 'ousd' | 'story'
   /**
    * What background color to use.
    * Will override background colors/gradients derived from other props.
@@ -53,7 +53,7 @@ export const Button = ({
         : 'text-black'
       break
 
-    case 'OUSD':
+    case 'ousd':
       background = type === 'primary' 
         ? 'bg-gradient-to-r from-ousd-button-start to-ousd-button-end'
         : 'bg-gradient-to-r from-ousd-button-dark-start to-ousd-button-dark-end'
@@ -78,7 +78,7 @@ export const Button = ({
   switch (size) {
     case 'small':
       textSize = 'text-base'
-      padding = 'px-4 py-1'
+      padding = 'px-7 py-1'
       break
 
     case 'medium':
@@ -95,6 +95,24 @@ export const Button = ({
       break
   }
 
+  let fontWeight
+  let shadow
+  let rounding
+  switch (type) {
+    case 'header':
+      fontWeight = 'font-normal'
+      shadow = ''
+      rounding = ''
+      padding = 'px-4 py-1'
+      break
+
+    default:
+      fontWeight = 'font-medium'
+      shadow = 'shahdow'
+      rounding = 'rounded-full'
+      break
+  }
+
   return (
     <button
       type="button"
@@ -104,11 +122,12 @@ export const Button = ({
         ${textColor}
         ${textSize} 
         ${padding}
+        ${fontWeight}
+        ${shadow}
+        ${rounding}
+        hover:bg-gray-50
         leading-7
-        shadow
         font-sans
-        rounded-full
-        font-medium
         animate-gradient
         background-gradient-oversized
       `}

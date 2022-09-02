@@ -14,12 +14,22 @@ export default {
 
 const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
 
-export const LoggedIn = Template.bind({});
-LoggedIn.args = {
-  user: {
-    name: 'Jane Doe',
-  },
+export const OriginProtocol = Template.bind({});
+OriginProtocol.args = {
+  webProperty: 'originprotocol'
 };
 
-export const LoggedOut = Template.bind({});
-LoggedOut.args = {};
+export const OUSD = Template.bind({});
+OUSD.args = {
+  webProperty: 'ousd'
+};
+OUSD.parameters = {
+  backgrounds: {
+    default: 'dark'
+  }
+}
+
+export const Story = Template.bind({});
+Story.args = {
+  webProperty: 'story'
+};

@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        gradient: 'gradient 15s ease infinite'
+        gradient: 'gradient 5s ease infinite'
       },
       boxShadow: {
         DEFAULT: '0px 27px 80px rgba(0, 0, 0, 0.07), 0px 6.0308px 17.869px rgba(0, 0, 0, 0.0417275), 0px 1.79553px 5.32008px rgba(0, 0, 0, 0.0282725);'

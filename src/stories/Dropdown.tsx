@@ -39,8 +39,8 @@ export const Dropdown = ({
           type="button" 
           className={
             `
-            ${highlightText?.length > 0 ? 'pr-12' : ''}
-            inline-flex w-full justify-center align-middle px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-offset-gray-100
+            ${highlightText?.length > 0 ? 'pr-14' : ''}
+            inline-flex w-full justify-center align-middle px-4 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-offset-gray-100 font-sans
             `
           }
             
@@ -49,13 +49,13 @@ export const Dropdown = ({
           aria-haspopup="true"
         >
           {label}
-          <img src={DownCaret} className="self-center pl-2" aria-hidden="true"/>
+          <img alt='caret' src={DownCaret} className="self-center pl-2" aria-hidden="true"/>
         </Menu.Button>
       </div>
       
       {
         highlightText?.length > 0 && (
-          <div className='absolute right-0 bottom-6 bg-gradient-to-r from-story-pink-start to-story-pink-end rounded text-white text-2xs py-1 px-2'>
+          <div className='absolute right-0 bottom-6 bg-gradient-to-r from-story-pink-start to-story-pink-end rounded text-white text-2xs py-0 px-1'>
             {highlightText}
           </div>
         )
@@ -108,8 +108,9 @@ const DropdownOption = ({
           className={classNames(
             active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
             highlight ? 'text-story-pink' : 'text-gray-700',
-            'block px-4 py-2 text-sm',
-            'font-bold'
+            'block px-4 py-2 text-base',
+            'font-bold',
+            'font-sans'
           )}
         >
           {label}

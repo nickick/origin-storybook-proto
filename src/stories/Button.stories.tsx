@@ -25,9 +25,14 @@ OriginProtocol.args = {
 
 export const OUSD = Template.bind({});
 OUSD.args = {
-  webProperty: 'OUSD',
+  webProperty: 'ousd',
   label: 'Connect Wallet',
 };
+OUSD.parameters = {
+  backgrounds: {
+    default: 'dark'
+  }
+}
 
 export const Story = Template.bind({});
 Story.args = {
