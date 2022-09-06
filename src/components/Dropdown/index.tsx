@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
-import DownCaret from './assets/down-caret.svg'
+import DownCaret from '../assets/down-caret.svg'
 
 type Options = {
   label: string,

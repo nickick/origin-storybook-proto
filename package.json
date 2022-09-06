@@ -1,7 +1,7 @@
 {
-  "name": "origin-storybook",
+  "name": "origin-storybook-proto",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@headlessui/react": "^1.6.6",
     "@testing-library/jest-dom": "^5.16.5",
@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "start-storybook -p 6006",
-    "build": "react-scripts build",
+    "build": "cross-env BABEL_ENV=production babel --extensions .ts,.tsx ./src -d dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",
@@ -54,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.18.10",
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-interactions": "^6.5.10",
@@ -65,13 +66,34 @@
     "@storybook/preset-create-react-app": "^4.1.2",
     "@storybook/react": "^6.5.10",
     "@storybook/testing-library": "0.0.13",
+    "auto": "^10.37.4",
     "autoprefixer": "^10.4.8",
     "babel-plugin-named-exports-order": "0.0.2",
+    "cross-env": "^7.0.3",
     "postcss": "^8.4.16",
     "postcss-loader": "^7.0.1",
     "prop-types": "^15.8.1",
     "tailwindcss": "^2.2.19",
     "tsconfig-paths-webpack-plugin": "^4.0.0",
     "webpack": "^5.74.0"
-  }
+  },
+  "babel": {
+    "presets": [
+      [
+        "react-app",
+        {
+          "absoluteRuntime": false
+        }
+      ]
+    ],
+    "ignore": [
+      "**/*.stories.tsx",
+      "**/*.test.@(js|jsx|ts|tsx)"
+    ]
+  },
+  "description": "Prototype component library for Origin Protocol",
+  "main": "dist/index.js",
+  "repository": "https://github.com/nickick/origin-storybook-proto",
+  "author": "Nick Hong <nickhong@originprotocol.com>",
+  "license": "MIT"
 }

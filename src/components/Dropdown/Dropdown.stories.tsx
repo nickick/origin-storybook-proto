@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Dropdown } from './Dropdown';
-import { LanguageOptions, OgnDropdownOptions } from './HeaderOptions';
+import { Dropdown } from '.';
+import { LanguageOptions, OgnDropdownOptions } from '../Header/HeaderOptions';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -69,4 +69,14 @@ UnboldedDropdown.args = {
   label: 'Unbolded Dropdown',
   bolding: 'none',
   options: OgnDropdownOptions
+};
+
+
+export const RightAlignedDropdown = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+RightAlignedDropdown.args = {
+  label: 'Right aligned Dropdown',
+  bolding: 'all',
+  options: OgnDropdownOptions,
+  alignRight: true
 };

@@ -1,9 +1,7 @@
-import React from 'react';
-
-import { Button } from './Button';
-import { Dropdown } from './Dropdown';
+import { Button } from '../Button';
+import { Dropdown } from '../Dropdown';
 import './header.css';
-import { LanguageOptions, ProductsOptions, OgnDropdownOptions } from './HeaderOptions';
+import { LanguageOptions, OgnDropdownOptions, ProductsOptions } from './HeaderOptions';
 import OriginLogo from './OriginLogo';
 
 interface OriginProtocolNavProps {
@@ -56,7 +54,7 @@ interface HeaderProps {
 
 export const Header = ({ webProperty, language, onLogin, onLogout, onCreateAccount }: HeaderProps) => (
   <header>
-    <div className="px-9 py-16 w-full flex justify-between">
+    <div className="px-9 py-16 w-full flex justify-between items-center">
       <div className="flex h-6">
         <OriginLogo webProperty={webProperty} />
       </div>
