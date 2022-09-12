@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from '../Button';
 import { Dropdown } from '../Dropdown';
 import { LanguageOptions, OgnDropdownOptions, ProductsOptions } from './HeaderOptions';
-import OriginLogo from './OriginLogo';
+import { OriginLogo } from '../Icons';
 
 const OriginProtocolNav = ({
   language

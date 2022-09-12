@@ -26,7 +26,7 @@ export const Footer = () => (
           <Typography.Body2 classes="opacity-75">
             Products
           </Typography.Body2>
-          <Typography.Body2 classes="flex items-center">
+          <Typography.Body2 classes="flex items-center" as="div">
             <span className="opacity-75">
               Careers
             </span>

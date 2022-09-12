@@ -16,11 +16,11 @@ interface TypographyProps {
   /**
    * Tag type to use
    */
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'blockquote' | 'q' | 'code' | 'a'
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'blockquote' | 'q' | 'code' | 'a' | 'div'
   /**
    * Tag type to default to if not tag type supplied
    */
-  defaultAs?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'blockquote' | 'q' | 'code' | 'a'
+  defaultAs?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'blockquote' | 'q' | 'code' | 'a' | 'div'
   /**
    * Href for links
    */

@@ -26,6 +26,7 @@
     "@types/react": "^17.0.2",
     "autoprefixer": "^10.4.9",
     "babel-loader": "^8.2.5",
+    "chromatic": "^6.9.0",
     "postcss": "^8.4.16",
     "postcss-cli": "^10.0.0",
     "react": "^17.0.2",
@@ -45,6 +46,7 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=7db6a89b14e5",
     "build": "rollup -c"
   }
 }
