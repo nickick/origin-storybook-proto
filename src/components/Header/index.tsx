@@ -63,12 +63,9 @@ const Hamburger = ({
 interface HeaderProps {
   webProperty: 'originprotocol' | 'ousd' | 'story'
   language?: string
-  onLogin: () => void;
-  onLogout: () => void;
-  onCreateAccount: () => void;
 }
 
-export const Header = ({ webProperty, language, onLogin, onLogout, onCreateAccount }: HeaderProps) => {
+export const Header = ({ webProperty, language, }: HeaderProps) => {
   const [open, setOpen] = useState(false);
 
   return (

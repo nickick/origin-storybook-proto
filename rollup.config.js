@@ -3,6 +3,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
 import postcss from "rollup-plugin-postcss";
+import svg from 'rollup-plugin-svg';
 
 const packageJson = require("./package.json");
 
@@ -24,7 +25,15 @@ export default {
     peerDepsExternal(),
     resolve(),
     commonjs(),
-    typescript({ useTsconfigDeclarationDir: true }),
+    svg(),
+    typescript({ 
+      useTsconfigDeclarationDir: true,
+      exclude: [
+        "**/__tests__",
+        "**/*.test.ts",
+        "**/*.stories.tsx"
+      ]
+    }),
     postcss({
         extensions: ['.css']
     })
