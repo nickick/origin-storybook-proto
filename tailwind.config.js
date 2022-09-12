@@ -45,6 +45,11 @@ module.exports = {
       }),
       fontSize: {
         '2xs': [
+          '10pt', {
+            letterSpacing: '-0.01em',
+          }
+        ],
+        '2xl': [
           '1.5rem', {
             letterSpacing: '-0.01em',
           }
