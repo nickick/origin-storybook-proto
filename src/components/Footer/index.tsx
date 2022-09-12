@@ -20,20 +20,22 @@ export const Footer = () => (
           Organization
         </Typography.Body2>
         <div className="flex flex-row md:flex-col space-x-4 md:space-x-0 md:space-y-4">
-          <Typography.Body2 classes="opacity-75">
+          <Typography.Body2 classes="opacity-75" href='https://google.com'>
             Team
           </Typography.Body2>
-          <Typography.Body2 classes="opacity-75">
+          <Typography.Body2 classes="opacity-75" href='https://google.com'>
             Products
           </Typography.Body2>
-          <Typography.Body2 classes="flex items-center" as="div">
-            <span className="opacity-75">
+          <div className="flex items-center">
+            <Typography.Body2 classes="opacity-75" href='https://google.com'>
               Careers
-            </span>
-            <div className="opacity-100 text-sm ml-2 bg-gray-700 py-1 px-3 rounded-xl font-medium">
-              Hiring!
-            </div>
-          </Typography.Body2>
+            </Typography.Body2>
+            <a href='https://google.com' target='_blank'>
+              <div className="opacity-100 text-sm ml-2 bg-gray-700 py-1 px-3 rounded-xl font-medium">
+                Hiring!
+              </div>
+            </a>
+          </div>
         </div>
       </div>
       <div className="flex flex-col flex-2 space-y-4">

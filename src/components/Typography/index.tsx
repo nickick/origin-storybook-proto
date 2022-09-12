@@ -37,16 +37,31 @@ const GenericTypography = ({
 }: TypographyProps) => {
   const Tag = `${as || defaultAs || 'span'}` as keyof JSX.IntrinsicElements
 
-  return (
-    <Tag 
-      className={`${classes}`} 
-      style={{...(styles || {})}} 
-      href={href}
-      {...(href ? {target: '_blank'} : {})}
-    >
-      {children}
-    </Tag>
-  )
+  if (href) {
+    return (
+      <a 
+        href={href} 
+        target='_blank'
+        className={`${classes}`} 
+        style={{...(styles || {})}} 
+      >
+        <Tag 
+        >
+          {children}
+        </Tag>
+      </a>
+    )
+  } else {
+    return (
+      <Tag 
+        className={`${classes}`} 
+        style={{...(styles || {})}} 
+      >
+        {children}
+      </Tag>
+    )
+  }
+
 }
 
 export class Typography extends Component<TypographyProps> {
@@ -145,10 +160,11 @@ export class Typography extends Component<TypographyProps> {
     children,
     classes,
     styles,
+    href,
     as
   }: TypographyProps) => {
     return (
-      <GenericTypography classes={`font-sansInter font-bold text-xl ${classes}`} styles={styles} as={as} defaultAs='p'>
+      <GenericTypography classes={`font-sansInter font-bold text-xl ${classes}`} styles={styles} as={as} defaultAs='p' href={href}>
         {children}
       </GenericTypography>
     )
@@ -158,10 +174,11 @@ export class Typography extends Component<TypographyProps> {
     children,
     classes,
     styles,
+    href,
     as
   }: TypographyProps) => {
     return (
-      <GenericTypography classes={`font-sansInter font-normal text-base ${classes}`} styles={styles} as={as} defaultAs='p'>
+      <GenericTypography classes={`font-sansInter font-normal text-base ${classes}`} styles={styles} as={as} defaultAs='p' href={href}>
         {children}
       </GenericTypography>
     )
