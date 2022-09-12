@@ -61,7 +61,39 @@ const GenericTypography = ({
       </Tag>
     )
   }
+}
 
+const gradients = {
+  'originprotocol-gradient-start': '#8C66FC',
+  'originprotocol-gradient-middle': '#5C2EFF',
+  'originprotocol-gradient-end': '#0274F1',
+  'ousd-gradient-start': '#8C66FC',
+  'ousd-gradient-middle': '#0274F1',
+  'ousd-gradient-end': '#0274F1',
+  'story-gradient-start': '#CB6FDE',
+  'story-gradient-middle': '#5C2EFF',
+  'story-gradient-end': '#0074F0',
+}
+
+export const GradientText = ({
+  webProperty, 
+  text
+}: {
+  webProperty: 'originprotocol' | 'ousd' | 'story',
+  text: string,
+}) => {
+  return (
+    <span
+      style={{
+        background: `-webkit-linear-gradient(0deg, ${gradients[`${webProperty}-gradient-start`]}, ${gradients[`${webProperty}-gradient-middle`]}, ${gradients[`${webProperty}-gradient-end`]})`,
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+      }}
+      className="font-black"
+    >
+      {text}
+    </span>
+  )
 }
 
 export class Typography extends Component<TypographyProps> {
@@ -164,7 +196,7 @@ export class Typography extends Component<TypographyProps> {
     as
   }: TypographyProps) => {
     return (
-      <GenericTypography classes={`font-sansInter font-bold text-xl ${classes}`} styles={styles} as={as} defaultAs='p' href={href}>
+      <GenericTypography classes={`font-sansInter font-normal text-xl ${classes}`} styles={styles} as={as} defaultAs='p' href={href}>
         {children}
       </GenericTypography>
     )

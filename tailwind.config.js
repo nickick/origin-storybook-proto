@@ -45,13 +45,38 @@ module.exports = {
       }),
       fontSize: {
         '2xs': [
-          '10pt', {
+          '1.5rem', {
             letterSpacing: '-0.01em',
           }
         ],
         '3xl': [
           '2rem', {
             lineHeight: '2.25rem'
+          }
+        ],
+        '4xl': [
+          '2.5rem', {
+            lineHeight: '3rem'
+          }
+        ],
+        '5xl': [
+          '3rem', {
+            lineHeight: '4rem'
+          }
+        ],
+        '6xl': [
+          '3.5rem', {
+            lineHeight: '4rem'
+          }
+        ],
+        '7xl': [
+          '4rem', {
+            lineHeight: '5rem'
+          }
+        ],
+        '8xl': [
+          '4.5rem', {
+            lineHeight: '5.3125rem'
           }
         ]
       },
