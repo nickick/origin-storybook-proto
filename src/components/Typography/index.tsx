@@ -231,7 +231,7 @@ export class Typography extends Component<TypographyProps> {
     href,
   }: TypographyProps) => {
     return (
-      <GenericTypography classes={`font-sansInter font-bold text-base text-link-blue ${classes}`} styles={styles} as={as} defaultAs='a' href={href}>
+      <GenericTypography classes={`font-sansInter font-bold text-base text-link-blue ${classes}`} styles={styles} as={as} defaultAs='p' href={href}>
         {children}
       </GenericTypography>
     )
