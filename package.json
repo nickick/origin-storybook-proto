@@ -1,0 +1,10 @@
+{
+  "name": "origin-storybook",
+  "version": "0.1.0",
+  "description": "Component library for Origin Protocol, using Storybook",
+  "main": "index.js",
+  "repository": "https://github.com/oplabs/storybook.git",
+  "author": "Nick Hong",
+  "license": "MIT",
+  "private": false
+}
