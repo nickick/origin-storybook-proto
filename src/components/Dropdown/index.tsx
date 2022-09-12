@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
-import DownCaret from '../assets/down-caret.svg'
+import { DownCaret } from '../Icons'
 
 type Options = {
   label: string,
@@ -75,7 +75,9 @@ export const Dropdown = ({
           aria-haspopup="true"
         >
           {label}
-          <img alt='caret' src={DownCaret} className="self-center pl-2" aria-hidden="true"/>
+          <span className="self-center pl-2">
+            <DownCaret />
+          </span>
         </Menu.Button>
       </div>
       
