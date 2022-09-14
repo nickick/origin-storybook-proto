@@ -2,7 +2,7 @@
 An Origin Protocol shared component library, using [React](https://reactjs.org/), [Storybook.js](https://storybook.js.org/), and [rollup.js](https://rollupjs.org/guide/en/).
 
 ## Install and use components
-These components are meant to be used by Originprotocol.com, ousd.com, and story.xyz React frontend apps.
+These components are meant to be used by [originprotocol.com](https://originprotocol.com), [ousd.com](https://ousd.com), and [story.xyz](https://story.xyz) React frontend apps.
 
 ### To use in a consuming React app
 1. Install the npm package.
