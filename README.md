@@ -71,7 +71,7 @@ const Template: ComponentStory<typeof YourComponent> = (args) => (
 
 export const YourComponentStoryTitle = Template.bind({});
 ```
-Your folder should like like:
+Your folder should look like:
 ```
 .
 └── src/
