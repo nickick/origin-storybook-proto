@@ -8,7 +8,7 @@ type Options = {
   highlight?: boolean,
 }
 
-interface DropdownProps {
+export interface DropdownProps {
   /**
    * Dropdown options
    */

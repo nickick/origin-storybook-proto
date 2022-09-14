@@ -62,6 +62,7 @@
     "build-storybook": "build-storybook",
     "chromatic": "npx chromatic --project-token=7db6a89b14e5",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "test": "jest"
   }
 }

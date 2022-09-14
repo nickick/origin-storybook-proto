@@ -1,12 +1,12 @@
 import { Typography } from "../Typography"
 
-interface CardProps {
+export interface CardProps {
   /**
    * Web property that will change card base styling
    */
   webProperty: 'originprotocol' | 'ousd' | 'story'
   /**
-   * 
+   * String at the top of the text portion of the card
    */
   title: string
   body?: string

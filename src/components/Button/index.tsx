@@ -1,4 +1,4 @@
-interface ButtonProps {
+export interface ButtonProps {
   /**
    * What type of button is this?
    */

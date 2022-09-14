@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-interface TypographyProps {
+export interface TypographyProps {
   /**
    * Children to wrap with typography styling
    */

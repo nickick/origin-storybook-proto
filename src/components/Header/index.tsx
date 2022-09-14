@@ -60,7 +60,7 @@ const Hamburger = ({
   </div>
 )
 
-interface HeaderProps {
+export interface HeaderProps {
   webProperty: 'originprotocol' | 'ousd' | 'story'
   language?: string
 }
