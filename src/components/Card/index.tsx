@@ -9,12 +9,33 @@ export interface CardProps {
    * String at the top of the text portion of the card
    */
   title: string
+  /**
+   * String used as body/subtitle below title
+   */
   body?: string
+  /**
+   * String that is used as link text, optional
+   */
   linkText?: string
+  /**
+   * String that is used as link href, optional
+   */
   linkHref?: string
+  /**
+   * Src for image at top of card
+   */
   imgSrc: string
+  /**
+   * Src for alt at top of card
+   */
   imgAlt: string
+  /**
+   * Src for image in thumbnail at top of card, only for story cards
+   */
   thumbnailSrc?: string
+  /**
+   * Alt for image in thumbnail at top of card, only for story cards
+   */
   thumbnailAlt?: string
 }
 
