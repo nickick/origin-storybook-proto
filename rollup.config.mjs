@@ -4,21 +4,29 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
 import postcss from "rollup-plugin-postcss";
 import svg from 'rollup-plugin-svg';
-
-const packageJson = require("./package.json");
+import cssnano from 'cssnano';
 
 export default {
-  input: "src/index.ts",
+  input: [
+    "src/index.ts",
+    "src/components/Card/index.tsx",
+    "src/components/Button/index.tsx",
+    "src/components/Dropdown/index.tsx",
+    "src/components/Footer/index.tsx",
+    "src/components/Header/index.tsx",
+    "src/components/Typography/index.tsx",
+  ],
   output: [
     {
-      file: packageJson.main,
+      dir: "lib/cjs",
       format: "cjs",
       sourcemap: true
     },
     {
-      file: packageJson.module,
+      dir: "lib/esm",
       format: "esm",
-      sourcemap: true
+      sourcemap: true,
+      preserveModules: true,
     }
   ],
   plugins: [
@@ -35,7 +43,10 @@ export default {
       ]
     }),
     postcss({
-        extensions: ['.css']
-    })
+      plugins: [
+        cssnano()
+      ],
+      extensions: ['.css'],
+    }),
   ]
 };
