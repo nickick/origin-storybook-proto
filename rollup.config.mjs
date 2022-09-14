@@ -38,7 +38,7 @@ export default {
       useTsconfigDeclarationDir: true,
       exclude: [
         "**/__tests__",
-        "**/*.test.ts",
+        "**/*.test.tsx",
         "**/*.stories.tsx"
       ]
     }),

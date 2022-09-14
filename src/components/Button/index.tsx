@@ -8,11 +8,6 @@ interface ButtonProps {
    */
   webProperty?: 'originprotocol' | 'ousd' | 'story'
   /**
-   * What background color to use.
-   * Will override background colors/gradients derived from other props.
-   */
-  backgroundColor?: string;
-  /**
    * How large should the button be?
    */
   size?: 'small' | 'medium' | 'large';
@@ -24,6 +19,16 @@ interface ButtonProps {
    * Optional click handler
    */
   onClick?: () => void;
+  /**
+   * What additional classes should be used?
+   * Will add onto classes derived from other props.
+   */
+   className?: string;
+  /**
+   * What additional styles should be used?
+   * Will override background colors/gradients derived from other props.
+   */
+   style?: object;
 }
 
 /**
@@ -33,13 +38,14 @@ export const Button = ({
   type = 'primary',
   webProperty = 'originprotocol',
   size = 'medium',
-  backgroundColor,
   label,
+  className = '',
+  style = {},
   ...props
 }: ButtonProps) => {
   let background
   let textColor
-  let hoverColor
+  let hoverStyles
 
   switch (webProperty) {
     case 'originprotocol':
@@ -49,7 +55,9 @@ export const Button = ({
       textColor = type === 'primary'
         ? 'text-white'
         : 'text-black'
-      hoverColor = 'hover:bg-gray-50'
+      hoverStyles = type === 'primary'
+        ? 'hover:bg-gray-50 hover:text-gray-100'
+        : 'hover:bg-gray-50'
       break
 
     case 'ousd':
@@ -59,7 +67,7 @@ export const Button = ({
         ? 'bg-gradient-to-r from-ousd-button-dark-start to-ousd-button-dark-end'
         : ''
       textColor = 'text-white'
-      hoverColor = 'hover:bg-gray-900'
+      hoverStyles = 'hover:bg-gray-900 hover:text-gray-100'
       break;
     
     case 'story':
@@ -69,7 +77,9 @@ export const Button = ({
       textColor = type === 'primary'
         ? 'text-white'
         : 'text-story-blue'
-      hoverColor = 'hover:bg-gray-50'
+      hoverStyles = type === 'primary'
+        ? 'hover:bg-gray-50 hover:text-gray-100'
+        : 'hover:bg-gray-50'
       break
   
     default:
@@ -111,7 +121,7 @@ export const Button = ({
 
     default:
       fontWeight = 'font-medium'
-      shadow = 'shahdow'
+      shadow = 'shadow'
       rounding = 'rounded-full'
       break
   }
@@ -121,20 +131,20 @@ export const Button = ({
       type="button"
       className={`
         ${background}
-        ${backgroundColor}
         ${textColor}
         ${textSize} 
         ${padding}
         ${fontWeight}
         ${shadow}
         ${rounding}
-        ${hoverColor}
+        ${hoverStyles}
         leading-7
         font-sans
         animate-gradient
         background-gradient-oversized
+        ${className}
       `}
-      style={{ backgroundColor }}
+      style={style}
       {...props}
     >
       {label}
