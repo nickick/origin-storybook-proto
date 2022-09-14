@@ -4,12 +4,13 @@ An Origin Protocol shared component library, using [React](https://reactjs.org/)
 ## Install and use components
 These components are meant to be used by Originprotocol.com, ousd.com, and story.xyz React frontend apps.
 
-To use in a consuming React app, install the npm package and then import/use the components as you'd expect:
+### To use in a consuming React app
+1. Install the npm package.
 ```shell
 npm install origin-storybook
 ```
 
-In a React component:
+In a React component, import components:
 ```tsx
 import { Card, Header, Footer } from 'origin-storybook'
 ...
