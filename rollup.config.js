@@ -5,28 +5,21 @@ import typescript from "rollup-plugin-typescript2";
 import postcss from "rollup-plugin-postcss";
 import svg from 'rollup-plugin-svg';
 import cssnano from 'cssnano';
+const packageJson = require('./package.json');
+
 
 export default {
-  input: [
-    "src/index.ts",
-    "src/components/Card/index.tsx",
-    "src/components/Button/index.tsx",
-    "src/components/Dropdown/index.tsx",
-    "src/components/Footer/index.tsx",
-    "src/components/Header/index.tsx",
-    "src/components/Typography/index.tsx",
-  ],
+  input: 'src/index.ts',
   output: [
     {
-      dir: "lib/cjs",
+      file: packageJson.main,
       format: "cjs",
       sourcemap: true
     },
     {
-      dir: "lib/esm",
+      file: packageJson.module,
       format: "esm",
       sourcemap: true,
-      preserveModules: true,
     }
   ],
   plugins: [
