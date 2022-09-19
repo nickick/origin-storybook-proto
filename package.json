@@ -64,5 +64,8 @@
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json",
     "build": "rollup -c",
     "test": "jest"
-  }
+  },
+  "files": [
+    "/lib"
+  ]
 }
