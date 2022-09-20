@@ -4,7 +4,7 @@ export interface CardProps {
   /**
    * Web property that will change card base styling
    */
-  webProperty: 'originprotocol' | 'ousd' | 'story'
+  webProperty: 'originprotocol' | 'ousd' | 'story' | 'launchpad'
   /**
    * String at the top of the text portion of the card
    */
@@ -56,7 +56,7 @@ export const Card = ({
     </div>
     <div className="p-6 w-full relative">
       <div className="space-y-3.5">
-        <Typography.Title classes="mt-2">
+        <Typography.Title classes={`${webProperty === 'launchpad' ? 'mt-5' : 'mt-2'}`}>
           {title}
         </Typography.Title>
         <Typography.Body2>
@@ -73,8 +73,8 @@ export const Card = ({
           }
         </Typography.Link>
       </div>
-      { thumbnailSrc && webProperty === 'story' && (
-        <div className="absolute right-6 top-0 mt-0 transform -translate-y-1/2 rounded-full overflow-hidden border-4 border-white">
+      { thumbnailSrc && (webProperty === 'story' || webProperty === 'launchpad') && (
+        <div className={`absolute top-0 mt-0 transform overflow-hidden ${webProperty === 'story' ? 'right-6 -translate-y-1/2 rounded-full border-4 border-white' : 'left-6 -translate-y-3/4 rounded-xl'}`}>
           <img src={thumbnailSrc} alt={thumbnailAlt} className="w-full h-auto max-h-20 md:max-h-32" />
         </div>
       )}
