@@ -67,3 +67,16 @@ StoryCard.args = {
   thumbnailSrc: 'https://placekeanu.com/128/128',
   thumbnailAlt: 'Keanu face'
 };
+
+export const LaunchpadCard = Template.bind({});
+LaunchpadCard.args = {
+  webProperty: 'launchpad',
+  title: 'Lucky Ducky NFTs',
+  imgSrc: 'https://placekeanu.com/510/340',
+  imgAlt: 'keanu banner',
+  body: '7,777 Lucky Duckies have left the pond and are getting into mischief!',
+  linkText: 'Visit luckyducky.xyz/market',
+  linkHref: 'https://google.com',
+  thumbnailSrc: 'https://placekeanu.com/128/128',
+  thumbnailAlt: 'Keanu face'
+};
