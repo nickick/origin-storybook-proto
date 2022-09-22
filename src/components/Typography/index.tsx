@@ -229,6 +229,19 @@ export class Typography extends Component<TypographyProps> {
     )
   }
 
+  static Title2 = ({
+    children,
+    classes,
+    styles,
+    as
+  }: TypographyProps) => {
+    return (
+      <GenericTypography classes={`font-sansInter font-bold text-xs ${classes}`} styles={styles} as={as} defaultAs='p'>
+        {children}
+      </GenericTypography>
+    )
+  }
+
   static Caption = ({
     children,
     classes,
@@ -240,7 +253,20 @@ export class Typography extends Component<TypographyProps> {
         {children}
       </GenericTypography>
     )
-  } 
+  }
+
+  static Caption2 = ({
+    children,
+    classes,
+    styles,
+    as
+  }: TypographyProps) => {
+    return (
+      <GenericTypography classes={`font-sansInter font-normal text-xs ${classes}`} styles={styles} as={as} defaultAs='p'>
+        {children}
+      </GenericTypography>
+    )
+  }
 
   static Label = ({
     children,
