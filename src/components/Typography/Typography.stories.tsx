@@ -71,9 +71,19 @@ const Template: ComponentStory<typeof Typography> = (args) => (
       fontSize: 16px / 1rem,  lineHeight: 24px / 1.5rem, fontWeight: 700, fontFamily: 'Inter'
     </div>
     <br />
+    <Typography.Title2 {...args} children='Typography.Title2' />
+    <div className="text-xs opacity-50 mt-2">
+      fontSize: 12px / 1rem,  lineHeight: 16px / 1rem, fontWeight: 700, fontFamily: 'Inter'
+    </div>
+    <br />
     <Typography.Caption {...args} children='Typography.Caption' />
     <div className="text-xs opacity-50 mt-2">
       fontSize: 14px / 0.875rem,  lineHeight: 20px / 1.25rem, fontWeight: 400, fontFamily: 'Inter', opacity: 0.75
+    </div>
+    <br />
+    <Typography.Caption2 {...args} children='Typography.Caption2' />
+    <div className="text-xs opacity-50 mt-2">
+      fontSize: 12px / 0.75rem,  lineHeight: 16px / 1rem, fontWeight: 400, fontFamily: 'Inter', opacity: 0.75
     </div>
     <br />
     <Typography.Label {...args} children='Typography.Label' />
