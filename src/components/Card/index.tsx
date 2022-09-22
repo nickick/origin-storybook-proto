@@ -4,7 +4,7 @@ export interface CardProps {
   /**
    * Web property that will change card base styling
    */
-  webProperty: 'originprotocol' | 'ousd' | 'story' | 'launchpad'
+  webProperty: 'originprotocol' | 'ousd' | 'story' | 'launchpad' | 'press'
   /**
    * String at the top of the text portion of the card
    */
@@ -21,6 +21,14 @@ export interface CardProps {
    * String that is used as link href, optional
    */
   linkHref?: string
+  /**
+   * String that is used as link text, only for press cards
+   */
+   linkText2?: string
+   /**
+    * String that is used as link href, only for press cards
+    */
+   linkHref2?: string
   /**
    * Src for image at top of card
    */
@@ -46,6 +54,8 @@ export const Card = ({
   title,
   linkText,
   linkHref,
+  linkText2,
+  linkHref2,
   thumbnailSrc,
   thumbnailAlt,
   webProperty,
@@ -72,6 +82,11 @@ export const Card = ({
             )
           }
         </Typography.Link>
+        {webProperty === 'press' && (
+          <Typography.Link href={linkHref2} classes="mt-1 space-x-4 flex items-center">
+            {linkText2}
+          </Typography.Link>
+        )}
       </div>
       { thumbnailSrc && (webProperty === 'story' || webProperty === 'launchpad') && (
         <div className={`absolute top-0 mt-0 transform overflow-hidden ${webProperty === 'story' ? 'right-6 -translate-y-1/2 rounded-full border-4 border-white' : 'left-6 -translate-y-3/4 rounded-xl'}`}>
