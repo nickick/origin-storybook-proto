@@ -4,7 +4,7 @@ export interface CardProps {
   /**
    * Web property that will change card base styling
    */
-  webProperty: 'originprotocol' | 'ousd' | 'story' | 'launchpad' | 'press'
+  webProperty: 'originprotocol' | 'ousd' | 'story' | 'launchpad'
   /**
    * String at the top of the text portion of the card
    */
@@ -82,7 +82,7 @@ export const Card = ({
             )
           }
         </Typography.Link>
-        {webProperty === 'press' && (
+        {linkText2 && (
           <Typography.Link href={linkHref2} classes="mt-1 space-x-4 flex items-center">
             {linkText2}
           </Typography.Link>
