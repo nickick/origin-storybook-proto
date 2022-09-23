@@ -49,9 +49,9 @@ export const Button = ({
 
   switch (webProperty) {
     case 'originprotocol':
-      background = type === 'primary' 
+      background = type === 'primary'
         ? 'bg-gradient-to-r from-origin-protocol-button-start to-origin-protocol-button-end'
-        : 'bg-white' 
+        : 'bg-white'
       textColor = type === 'primary'
         ? 'text-white'
         : 'text-black'
@@ -61,7 +61,7 @@ export const Button = ({
       break
 
     case 'ousd':
-      background = type === 'primary' 
+      background = type === 'primary'
         ? 'bg-gradient-to-r from-ousd-button-start to-ousd-button-end'
         : type === 'secondary'
         ? 'bg-gradient-to-r from-ousd-button-dark-start to-ousd-button-dark-end'
@@ -69,19 +69,21 @@ export const Button = ({
       textColor = 'text-white'
       hoverStyles = 'hover:bg-gray-900 hover:text-gray-100'
       break;
-    
+
     case 'story':
-      background = type === 'primary' 
+      background = type === 'primary'
         ? 'bg-gradient-to-r from-story-button-start to-story-button-end'
-        : 'bg-white' 
+        : 'bg-white'
       textColor = type === 'primary'
         ? 'text-white'
+        : type === 'header'
+        ? 'text-black'
         : 'text-story-blue'
       hoverStyles = type === 'primary'
         ? 'hover:bg-gray-50 hover:text-gray-100'
         : 'hover:bg-gray-50'
       break
-  
+
     default:
       break
   }
@@ -132,7 +134,7 @@ export const Button = ({
       className={`
         ${background}
         ${textColor}
-        ${textSize} 
+        ${textSize}
         ${padding}
         ${fontWeight}
         ${shadow}

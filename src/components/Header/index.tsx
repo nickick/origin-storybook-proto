@@ -4,45 +4,66 @@ import { Dropdown } from '../Dropdown';
 import { LanguageOptions, OgnDropdownOptions, ProductsOptions } from './HeaderOptions';
 import { OriginLogo } from '../Icons';
 
-const OriginProtocolNav = ({
-  language
+export type MappedLink<Link> = {
+  href?: string
+  label: string
+  isButton: boolean
+  highlightText?: string
+  order: number
+  links?: Link[]
+}
+
+export type LinkFormatted<IconFormatted> = {
+  label: string
+  href: string
+  highlight?: boolean
+  icon?: IconFormatted
+}
+
+export type IconFormatted = {
+  alternativeText: string
+  caption: string
+  url: string
+}
+
+const NavLinks = ({
+  mappedLinks,
+  webProperty
 }: {
-  language: string
+  mappedLinks: MappedLink<LinkFormatted<IconFormatted>>[],
+  webProperty: 'originprotocol' | 'ousd' | 'story'
 }) => (
-  <div className='flex flex-col md:flex-row space-y-4 md:space-y-0'>
-    <div className='block md:hidden self-center'>
-      <Dropdown label={language} options={LanguageOptions}  alignRight bolding='selection' />
-    </div>
-    <Dropdown label="Products" options={ProductsOptions} />
-    <Dropdown label="Company" options={ProductsOptions} />
-    <Button label='Community' type="header" size="small" />
-    <div className='hidden md:block self-center'>
-      <Dropdown label={language} options={LanguageOptions}  alignRight bolding='selection' />
-    </div>
-  </div>
-)
-
-const OusdNav = () => (
-  <div className='flex flex-col md:flex-row space-y-4 md:space-y-0'>
-    <Button label='Governance' type="header" size="small" webProperty='ousd' />
-    <Button label='Docs' type="header" size="small" webProperty='ousd' />
-    <Button label='FAQ' type="header" size="small" webProperty='ousd' />
-    <Button label='OGV' type="header" size="small" webProperty='ousd' />
-    <div className='flex flex-col md:flex-row md:space-x-5 md:pl-4 items-center justify-center space-y-4 md:space-y-0'>
-      <Button size="small" label="Get OUSD" webProperty="ousd" />
-    </div>
-  </div>
-)
-
-const StoryNav = () => (
   <div className='flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0'>
-    <Dropdown label="Products" options={ProductsOptions} />
-    <Dropdown label="Drops" options={ProductsOptions} />
-    <Button label='Docs' type="header" size="small" />
-    <Dropdown label="OGN" highlightText="Rewards" options={OgnDropdownOptions} />
+    {
+      mappedLinks.map((mappedLink) => {
+        if (!mappedLink.isButton && mappedLink.links) {
+          if (mappedLink.links.length > 0) {
+            return (
+              <Dropdown label={mappedLink.label} highlightText={mappedLink.highlightText} options={mappedLink.links} key={mappedLink.label} />
+            )
+          } else {
+            return (
+              <Button label={mappedLink.label} type="header" size="small" key={mappedLink.label} webProperty={webProperty} />
+            )
+          }
+        }
+      })
+    }
+    {webProperty === 'originprotocol' && (
+      <div className='self-center'>
+        <Dropdown label='English' options={LanguageOptions}  alignRight bolding='selection' />
+      </div>
+    )}
     <div className='flex flex-col md:flex-row md:space-x-5 md:pl-4 items-center justify-center space-y-4 md:space-y-0'>
-      <Button size="small" label="Buy Ogn" webProperty="story" />
-      <Button size="small" label="Connect Wallet" webProperty="story" />
+      {
+        mappedLinks.map((mappedLink) => {
+          if (mappedLink.isButton) {
+            return (
+              <Button size="small" label={mappedLink.label} webProperty="story" />
+            )
+          }
+        })
+      }
     </div>
   </div>
 )
@@ -62,10 +83,11 @@ const Hamburger = ({
 
 export interface HeaderProps {
   webProperty: 'originprotocol' | 'ousd' | 'story'
+  mappedLinks: MappedLink<LinkFormatted<IconFormatted>>[]
   language?: string
 }
 
-export const Header = ({ webProperty, language, }: HeaderProps) => {
+export const Header = ({ webProperty, mappedLinks, language, }: HeaderProps) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -75,23 +97,15 @@ export const Header = ({ webProperty, language, }: HeaderProps) => {
           <OriginLogo webProperty={webProperty} />
         </div>
         <div className="hidden md:block">
-          {webProperty === 'originprotocol' && (
-            <OriginProtocolNav language={language || 'English'} />
-          )}
-          {webProperty === 'ousd' && (
-            <OusdNav />
-          )}
-          {webProperty === 'story' && (
-            <StoryNav />
-          )}
+          <NavLinks mappedLinks={mappedLinks} webProperty={webProperty} />
         </div>
         <div className="block md:hidden">
           <Hamburger open={open} setOpen={setOpen} />
         </div>
         <div className={
           `
-            ${open ? 'translate-y-0' : 'translate-y-full'} 
-            ${webProperty === 'ousd' ? 'bg-black' : 'bg-white'} 
+            ${open ? 'translate-y-0' : 'translate-y-full'}
+            ${webProperty === 'ousd' ? 'bg-black' : 'bg-white'}
             transform md:hidden fixed top-0 bottom-0 right-0 left-0 transition-transform shadow
           `
         }>
@@ -100,15 +114,7 @@ export const Header = ({ webProperty, language, }: HeaderProps) => {
               <div className="absolute right-8 top-16">
                 <Hamburger open={open} setOpen={setOpen} />
               </div>
-              {webProperty === 'originprotocol' && (
-                <OriginProtocolNav language={language || 'English'} />
-              )}
-              {webProperty === 'ousd' && (
-                <OusdNav />
-              )}
-              {webProperty === 'story' && (
-                <StoryNav />
-              )}
+              <NavLinks mappedLinks={mappedLinks} webProperty={webProperty} />
             </div>
           </div>
         </div>
