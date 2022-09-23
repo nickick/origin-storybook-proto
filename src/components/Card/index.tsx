@@ -89,7 +89,7 @@ export const Card = ({
         )}
       </div>
       { thumbnailSrc && (webProperty === 'story' || webProperty === 'launchpad') && (
-        <div className={`absolute top-0 mt-0 transform overflow-hidden ${webProperty === 'story' ? 'right-6 -translate-y-1/2 rounded-full border-4 border-white' : 'left-6 -translate-y-3/4 rounded-xl'}`}>
+        <div className={`absolute top-0 mt-0 transform overflow-hidden ${webProperty === 'story' ? 'right-6 -translate-y-1/2 rounded-full border-4 border-white' : 'left-6 -translate-y-2/3 rounded-xl'}`}>
           <img src={thumbnailSrc} alt={thumbnailAlt} className="w-full h-auto max-h-20 md:max-h-32" />
         </div>
       )}
