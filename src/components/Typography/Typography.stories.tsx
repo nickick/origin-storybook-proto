@@ -24,36 +24,36 @@ const Template: ComponentStory<typeof Typography> = (args) => (
       Typography.H2 with <GradientText webProperty='originprotocol' text='Gradient Text' />
     </Typography.H2>
     <div className="text-xs opacity-50 mt-2">
-      fontSize: 64px / 4rem,  lineHeight: 80px / 5rem, fontWeight: 700, fontFamily: 'Saelic'
+      fontSize: 64px / 4rem,  lineHeight: 80px / 5rem, fontWeight: 500, fontFamily: 'Saelic'
     </div>
     <br />
     <Typography.H3 {...args} >
       Typography.H3 with <GradientText webProperty='ousd' text='Gradient Text' />
     </Typography.H3>
     <div className="text-xs opacity-50 mt-2">
-      fontSize: 56px / 3.5rem,  lineHeight: 64px / 4rem, fontWeight: 700, fontFamily: 'Saelic'
+      fontSize: 56px / 3.5rem,  lineHeight: 64px / 4rem, fontWeight: 500, fontFamily: 'Saelic'
     </div>
     <br />
     <Typography.H4 {...args} >
       Typography.H4 with <GradientText webProperty='story' text='Gradient Text' />
     </Typography.H4>
     <div className="text-xs opacity-50 mt-2">
-      fontSize: 48px / 3rem,  lineHeight: 64px / 4rem, fontWeight: 700, fontFamily: 'Saelic'
+      fontSize: 48px / 3rem,  lineHeight: 64px / 4rem, fontWeight: 500, fontFamily: 'Saelic'
     </div>
     <br />
     <Typography.H5 {...args} children='Typography.H5' />
     <div className="text-xs opacity-50 mt-2">
-      fontSize: 40px / 2.5rem,  lineHeight: 48px / 3rem, fontWeight: 700, fontFamily: 'Saelic'
+      fontSize: 40px / 2.5rem,  lineHeight: 48px / 3rem, fontWeight: 500, fontFamily: 'Saelic'
     </div>
     <br />
     <Typography.H6 {...args} children='Typography.H6' />
     <div className="text-xs opacity-50 mt-2">
-      fontSize: 32px / 2rem,  lineHeight: 36px / 2.25rem, fontWeight: 700, fontFamily: 'Saelic'
+      fontSize: 32px / 2rem,  lineHeight: 36px / 2.25rem, fontWeight: 500, fontFamily: 'Saelic'
     </div>
     <br />
     <Typography.H7 {...args} children='Typography.H7' />
     <div className="text-xs opacity-50 mt-2">
-      fontSize: 24px / 1.5rem,  lineHeight: 24px / 1.5rem, fontWeight: 700, fontFamily: 'Saelic'
+      fontSize: 24px / 1.5rem,  lineHeight: 24px / 1.5rem, fontWeight: 500, fontFamily: 'Saelic'
     </div>
     <br />
     <Typography.Body {...args} children='Typography.Body' />
