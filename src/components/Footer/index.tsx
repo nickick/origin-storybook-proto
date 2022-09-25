@@ -3,7 +3,7 @@ import { Typography } from "../Typography"
 
 export const Footer = () => (
   <div className="w-full bg-gradient-to-r from-black to-footer-end px-7 md:px-32 py-10 md:py-20 text-white">
-    <div className="border-b flex flex-col md:flex-row space-y-12 md:space-y-0 pb-12 md:pb-7" style={{borderBottomColor: 'rgba(255,255,25,0.2)'}}>
+    <div className="border-b flex flex-col md:flex-row space-y-12 md:space-y-0 pb-12 md:pb-7 max-w-screen-2xl mx-auto" style={{borderBottomColor: 'rgba(255,255,25,0.2)'}}>
       <div className="flex flex-col md:justify-between space-y-6 md:space-y-0 flex-6">
         <OriginLogo webProperty="originprotocol" theme="dark" />
         <div className="flex space-x-4 items-center">
@@ -71,7 +71,7 @@ export const Footer = () => (
         </div>
       </div>
     </div>
-    <div className="pt-10 flex flex-col md:flex-row space-y-2 md:space-y-0 justify-between opacity-75">
+    <div className="pt-10 flex flex-col md:flex-row space-y-2 md:space-y-0 justify-between opacity-75 max-w-screen-2xl mx-auto">
       <Typography.Body2>
         © 2022 Origin Protocol Inc. All rights reserved.
       </Typography.Body2>
