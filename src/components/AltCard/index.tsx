@@ -44,7 +44,7 @@ export const AltCard = ({
     <div className='relative float-left mb-3'>
       <img src={imgSrc} alt={imgAlt} className="h-10" />
       { thumbnailSrc && (
-        <div className='absolute right-0 bottom-0 transform translate-x-1/2 translate-y-1/2 overflow-hidden rounded-full border-2 border-white'>
+        <div className='absolute left-4 bottom-1 transform translate-x-1/2 translate-y-1/2 overflow-hidden rounded-full border-2 border-white'>
           <img src={thumbnailSrc} alt={thumbnailAlt} className="w-5 h-5 object-cover" />
         </div>
       )}

@@ -66,7 +66,7 @@ export const Card = ({
     </div>
     <div className="p-6 w-full relative">
       <div className="space-y-3.5">
-        <Typography.Title classes={`${webProperty === 'launchpad' ? 'mt-5' : 'mt-2'}`}>
+        <Typography.Title classes={`${webProperty === 'launchpad' ? 'mt-3' : 'mt-2'}`}>
           {title}
         </Typography.Title>
         <Typography.Body2>
